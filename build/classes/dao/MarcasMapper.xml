@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Generamos una etiqueta -->
+<!-- configuracion para que funcione la clase categoria -->
+<mapper namespace="dao.MarcasMapper">
+    
+    <resultMap id="MarcaMap" type="models.Marcas">
+        <id column="id_marca" property="idMarcas"/>
+        <result column="nombre" property="nombre"/>
+        <result column="descripcion" property="descripcion"/>
+        <result column="imagen_url" property="imagenUrl"/>
+        <result column="fecha_creacion" property="fechaCreacion"/>
+    </resultMap>
+     
+     <select id="listarMarcas" resultMap="MarcaMap"> 
+           select id_marca,nombre,descripcion,imagen_url,fecha_creacion
+           from marcas
+           
+     </select>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Generamos una etiqueta -->
+<!-- configuracion para que funcione la clase categoria -->
+<mapper namespace="dao.SalidaDetalleMapper">
+ 
+ <resultMap id="SalidaDetalleMap" type="models.SalidaDetalle" >
+ 		<id column="id_salida_detalle" property="idSalidaDetalle"/>
+ 		<result column="id_salida" property="idSalida"/>
+ 		<result column="id_producto" property="idProducto"/>
+ 		<result column="cantidad" property="cantidad"/>
+ 		<result column="precio_unitario" property="precioUnitario"/>	
+ 		<result column="fecha_creacion" property="fechaCreacion"/>
+ 	</resultMap>
+ 
+ 
+ 	<select id="obtenerSalidaDetallePorIdSalidaYIdProducto" resultMap="SalidaDetalleMap">
+ 		SELECT id_salida_detalle, id_salida, id_producto, cantidad, precio_unitario, fecha_creacion
+ 		FROM salida_detalles
+ 		WHERE estado_auditoria = '1' and id_salida = #{idSalida} and id_producto = #{idProducto}
+ 	</select>
+ 	
+ 	<insert id="insertarSalidaDetalle" parameterType="models.SalidaDetalle" useGeneratedKeys="true" keyProperty="idSalidaDetalle">
+ 		INSERT INTO salida_detalles (id_salida, id_producto, precio_unitario)
+ 		VALUES (#{idSalida}, #{idProducto}, #{precioUnitario})
+ 	</insert>
+ 	
+ 	<update id="aumentarSalidaDetalleCantidad" parameterType="Integer">
+ 		UPDATE salida_detalles
+ 		SET cantidad = cantidad + 1
+ 		WHERE id_salida_detalle = #{idSalidaDetalle}
+ 	</update >
+ 	
+ </mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Generamos una etiqueta -->
+<!-- configuracion para que funcione la clase categoria -->
+<mapper namespace="dao.SalidaMapper">
+ 
+ <resultMap id="SalidaMap" type="models.Salida" >
+ 		<id column="id_salida" property="idSalida"/>
+ 		<result column="fecha_salida" property="fechaSalida"/>
+ 		<result column="descripcion" property="descripcion"/>
+ 		<result column="id_usuario_comprador" property="idUsuarioComprador"/>
+ 		<result column="id_usuario_vendedor" property="idUsuarioVendedor"/>
+ 		<result column="estado_venta" property="estadoVenta"/>
+ 		<result column="fecha_creacion" property="fechaCreacion"/>
+ 		<result column="codigo_interno" property="codigoInterno"/>
+ 		<result column="codigo_boleta" property="codigoBoleta"/>
+ 		<result column="metodo_pago" property="metodoPago"/>
+ 		<result column="monto_total" property="montoTotal"/>
+ 		
+ 	</resultMap>
+ 	
+ 
+ 	<select id="obtenerSalidaPorCodigoInterno" parameterType="String" resultMap="SalidaMap">
+ 		SELECT 
+ 		id_salida, fecha_salida, descripcion, id_usuario_comprador, id_usuario_vendedor, estado_venta, fecha_creacion, codigo_interno, codigo_boleta, metodo_pago, monto_total
+ 		FROM salidas
+ 		WHERE estado_auditoria = '1' and codigo_interno = #{codigoInterno}
+ 	</select>
+ 		
+ 	
+ 	<insert id="insertarSalida" parameterType="models.Salida" useGeneratedKeys="true" keyProperty="idSalida">
+ 		INSERT INTO salidas (codigo_interno, codigo_boleta, id_usuario_comprador, id_usuario_vendedor, metodo_pago, monto_total)
+ 		VALUES (#{codigoInterno}, #{codigoBoleta}, #{idUsuarioComprador}, #{idUsuarioVendedor}, #{metodoPago}, #{montoTotal})
+ 	</insert>
+ </mapper>

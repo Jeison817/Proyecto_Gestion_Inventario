@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <title>Gestion de Inventario | SISE</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK51mRGuuSAs7ZCOGM1hJyRBYclp0K44OJyA&s" type="image/png">
+ 
+</head>
+<body class="bg-slate-600 rounded-lg  ring shadow-xl ring-gray-400" >
+
+
+     <header>      
+      <div class="flex bg-rose-900 h-[50px] items-center justify-between">
+      
+         
+         <div class="flex gap-4 justify-center w-full">
+            <a href="/Proyecto_Gestion_Inventario" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer border border-white border-solid"> Inicio </a>
+            <a href="/Proyecto_Gestion_Inventario/categorias" class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer "> Categorias </a>
+            <a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer"> Marcas</a>
+            <a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer"> Proveedores</a>
+            <a class="h-auto text-white hover:bg-green-700 p-2 rounded-md cursor-pointer"> Reportes</a>
+            
+       </div> 
+      
+                       
+         <a class="mr-2 bg-white p-1 rounded text-green-700 font-medium hover:bg-green-700
+                   hover:text-white hover:border hover:border-white" href="/galactus-store/carrito">Carrito</a>
+      </div>
+   </header>
+   
+     
+     <!-- Layout principal después del header -->
+<div class="flex min-h-screen">
+
+  <aside class="bg-blue-600 text-white w-24 min-h-screen p-4 flex flex-col items-center space-y-6 fixed top-0 left-0">
+   <a href="/Proyecto_Gestion_Inventario/marcas" class="flex flex-col items-center justify-center gap-2 hover:bg-yellow-700 p-2 rounded cursor-pointer w-full">
+      <svg width="23" height="17" viewBox="0 0 23 17" fill="white" class="h-6 w-6">
+        <rect x="2.2" y="2.2" width="18" height="2" rx="1" fill="white"></rect>
+        <rect x="2.2" y="7.2" width="18" height="2" rx="1" fill="white"></rect>
+        <rect x="2.2" y="12.2" width="18" height="2" rx="1" fill="white"></rect>
+      </svg>
+      <span class="text-xl">Marcas</span>
+    </a>
+
+    <a href="/Proyecto_Gestion_Inventario/roles" class="flex flex-col items-center justify-center gap-2 hover:bg-yellow-700 p-2 rounded cursor-pointer w-full">
+      <img src="icons/roles.png" alt="Icono de roles" width="60" height="60">
+      <span class="text-xl">Roles</span>
+    </a>
+
+    <a href="https://www.sise.edu.pe" class="flex flex-col items-center justify-center gap-2 hover:bg-yellow-700 p-2 rounded cursor-pointer w-full">
+      <img src="icons/web.png" alt="Icono de web" width="60" height="60">
+      <span class="text-xl">Web</span>
+    </a>
+    
+    <a href="https://www.google.com/maps/place/Instituto+SISE+-+Santa+Beatriz/@-12.0775744,-77.035768,17z/data=!3m1!4b1!4m6!3m5!1s0x9105c8f303b685b1:0x23fb9b75222fc9a1!8m2!3d-12.0775744!4d-77.035768!16s%2Fg%2F1tdh4ydr?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoASAFQAw%3D%3D" class="flex flex-col items-center justify-center gap-2 hover:bg-yellow-700 p-2 rounded cursor-pointer w-full">
+      <img src="icons/mapa.png" alt="Icono de web" width="60" height="60">
+      <span class="text-xl">Direccion</span>
+    </a>
+  </aside>
+
+  <main class="flex-1 p-4 ml-48">
+    <h1 class="text-amber-300 font-bold text-2xl text-center mb-7">Gestion de Inventarios</h1>
+
+    <section>
+    <p class="text-lg text-white leading-relaxed mb-4">
+        La gestión de inventario es el proceso de supervisar, controlar y optimizar el flujo de bienes y materiales dentro de una empresa o almacén. Su objetivo principal es asegurar que se disponga de la cantidad adecuada de productos en el momento oportuno, evitando tanto el desabastecimiento como el exceso de stock. Esto se logra mediante el seguimiento de las existencias, la planificación de reabastecimientos, y el uso de métodos y herramientas para mantener un balance eficiente entre la demanda y la oferta de productos. Una gestión de inventarios adecuada mejora la eficiencia operativa, reduce costos y asegura un buen nivel de servicio al cliente.
+      </p>
+      </section>
+  </main>
+
+  <!-- Contenido principal -->
+  <main class="flex-1 p-4">
+    <h1 class="text-amber-300 font-bold text-2xl text-center">Flujo de Entrdas y Salidas de productos</h1>
+
+    <section>
+      <!-- Aquí va tu contenido dinámico -->
+    </section>
+  </main>
+</div>
+     
+     <footer class="bg-lime-950 text-white py-10 fixed bottom-0 left-0 w-full">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-center">
+   
+    <div>
+     <img src="icons/Control.png" class="w-10 mx-auto mb-2">
+      <h5 class="text-2xl font-bold text-teal-400">Servicio de Calidad</h5>
+      <h6 class="text-sm text-gray-300">Cumplimiento de normas y conjuntos de estándares</h6>
+    </div>
+
+    <div>
+      <img src="icons/vigilancia.png" class="w-10 mx-auto mb-2">
+      <h5 class="text-2xl font-bold text-teal-400">Profesionalismo</h5>
+      <h6 class="text-sm text-gray-300">Mejores Gestores del Region</h6>
+    </div>
+
+    <div>
+      <img src="icons/seguridad.png" class="w-10 mx-auto mb-2">
+      <h5 class="text-2xl font-bold text-teal-400">Seguridad</h5>
+      <h6 class="text-sm text-gray-300">Confianza en salida y entrada de mercancia</h6>
+    </div>
+
+    <div>
+      <img src="icons/stock.png"  class="w-10 mx-auto mb-2">
+      <h5 class="text-2xl font-bold text-teal-400">Stock</h5>
+      <h6 class="text-sm text-gray-300">Siempre con productos</h6>
+    </div>
+
+    <div>
+      <img src="icons/transporte.png"  class="w-10 mx-auto mb-2">
+      <h5 class="text-2xl font-bold text-teal-400">Transporte</h5>
+      <h6 class="text-sm text-gray-300">Las 24 horas del dia</h6>
+    </div>
+
+  </div>
+</footer>
+     
+</body>
+</html>
+
+

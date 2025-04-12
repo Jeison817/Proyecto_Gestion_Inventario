@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Generamos una etiqueta -->
+<!-- configuracion para que funcione la clase categoria -->
+<mapper namespace="dao.ProductoMapper">
+    
+  <resultMap id="ProductoMap" type="models.Producto" >
+ 		<id column="id_producto" property="idProducto"/>
+ 		<result column="id_marca" property="idMarca"/>
+ 		<result column="id_subcategoria" property="idSubcategoria"/>
+ 		<result column="id_proveedor" property="idProveedor"/>
+ 		<result column="codigo_interno" property="codigoInterno"/>
+ 		<result column="codigo_externo" property="codigoExterno"/>
+ 		<result column="nombre" property="nombre"/>
+ 		<result column="descripcion" property="descripcion"/>
+ 		<result column="modelo" property="modelo"/>
+ 		<result column="tiempo_garantia_meses" property="tiempoGarantiaMeses"/>
+ 		<result column="precio" property="precio"/>
+ 		<result column="stock" property="stock"/>
+ 		<result column="fecha_compra" property="fechaCompra"/>
+ 		<result column="fecha_creacion" property="fechaCreacion"/>
+ 		<result column="imagen_url" property="imagenUrl"/>
+ 		
+ 	</resultMap>
+ 	
+    <select id="listarProductosPorIdSubcategoria" parameterType="int" resultMap="ProductoMap"> 
+           select
+       (select pi.imagen_url from producto_imagenes pi where pi.estado_auditoria='1' and pi.id_producto=p.id_producto 
+                                                order by pi.fecha_creacion asc limit 1)
+	   imagen_url,p.id_producto,p.id_marca,p.id_subcategoria,p.id_proveedor,p.codigo_interno,p.codigo_externo,p.nombre,
+       p.descripcion,p.modelo,p.tiempo_garantia_meses,
+       p.precio,p.stock,p.fecha_compra,p.fecha_creacion
+           from productos p
+           where p.estado_auditoria='1' and p.id_subcategoria=#{idSubcategoria}
+     </select>
+</mapper>
